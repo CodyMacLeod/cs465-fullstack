@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 const Trip = require('../models/travlr'); // Register model
+//const User = require("../models/user");
+//const Trip = mongoose.model('trips');
 const Model = mongoose.model('trips');
 
 // GET: /trips - list all the trips
@@ -29,7 +31,7 @@ const tripsList = async(req, res) => {
 // Regardless of outcome, response must include HTML status code
 // and JSON message to the requesting client
 const tripsFindByCode = async(req, res) => {
-    const q = await Model
+    const q = await Model 
         .find({'code' : req.params.tripCode }) // No filter, return all records
         .exec();
 
@@ -77,7 +79,7 @@ const tripsAddTrip = async(req, res) => {
         }
 
         // Uncomment the following line to show the results of operation on the console
-        //  console.log(q);
+        //  console.log(q); */
 };
 
 // PUT: /trips/:tripCode - Adds a new Trip
@@ -85,8 +87,8 @@ const tripsAddTrip = async(req, res) => {
 // and JSON message to the requesting client
 const tripsUpdateTrip = async(req, res) => {
     // Uncomment for debugging
-    console.log(req.params);
-    console.log(req.body);
+    //console.log(req.params);
+    //console.log(req.body);
     
     const q = await Model
         .findOneAndUpdate(
@@ -116,9 +118,8 @@ const tripsUpdateTrip = async(req, res) => {
     }
 
     // Uncomment the following line to show results of operation on the console
-    // console.log(q);
+    // console.log(q); */
 };
-
 
 module.exports = {
     tripsList,
